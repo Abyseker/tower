@@ -4,12 +4,12 @@ export const REGIONS=[
 ];
 const names=['起始之镇 · 无人签收的邀请','踏鸣原野 · 陷阱里的来客','摇曳迷雾 · 两封委托','旧轨支线 · 末班车以后','回声机房 · 三面镜','苔灯街区 · 不营业的店','灰纱剧场 · 无人谢幕','断桥回廊 · 迟到的援手','门前长夜 · 守夜人的信','归途总站 · 谁在等末班车'];
 const bosses=['dullahan','farbauti','thanatos','hati','thanatos','dullahan','nymph','farbauti','thanatos','butcher'];
-const bossNames=['杜拉罕 · 换刃者','法布提 · 踏鸣','塔纳托斯 · 雾中回声','装甲哈提 · 轨道看守','塔纳托斯 · 三面回声','杜拉罕 · 苔灯守卫','冥宁芙·灰纱 · 残响','法布提 · 断桥伏兵','塔纳托斯 · 夜航','死路屠夫 · 末班车'];
+const bossNames=['杜拉罕 · 换刃者','法布提 · 踏鸣','塔纳托斯 · 雾中回声','装甲哈提 · 轨道看守','塔纳托斯 · 三面回声','杜拉罕 · 苔灯守卫','冥宁芙·双子 · 残响','法布提 · 断桥伏兵','塔纳托斯 · 夜航','死路屠夫 · 末班车'];
 const patterns=['←↑→','↓←↑','↑→↓','←↓→','↑←↓','→↑←','↓→↑','←→↓','↑↓←','←↑→↓'];
 const intros=['钟停在零点。退出那一栏，像被人小心剪走了。','蹄声来自很远的厂房。近处却有女孩在呼救。','两支邦布队伍，都说自己的委托才是真的。','线路图没有终点。售票员却坚持有人还没上车。','镜面里多出一道影子。它的动作，比你慢半拍。','店主把灯擦得很亮，等一位不会来的客人。','空荡的观众席上，每个座位都有一张票。','桥下没有深渊，只有一层又一层的电视雪花。','从第一层就跟着你的钟声，今晚只敲了十一下。','最大的站台，也是最安静的站台。有人等了很久。'];
 export const FLOORS=Array.from({length:101},(_,i)=>{const r=REGIONS[Math.floor(Math.max(0,i-1)/10)];return {id:i,name:i===0?'被抹去的候车室':i<=10?names[i-1]:`${r[0]} · 第${i}层`,region:r[0],terrain:r[1],product:r[2],boss:i===0?'hati':i<=10?bosses[i-1]:i===100?'nightmare':i%10===0?'butcher':i%5===0?'thanatos':'dullahan',bossName:i===0?'装甲哈提 · 缚梦残影':i<=10?bossNames[i-1]:i===100?'夜魔的化身':i%10===0?'区域首领':i%5===0?'精英守门者':'楼层守门者',pattern:i===0?'↓↑':patterns[(Math.max(1,i)-1)%10],intro:i===0?'没有风，旧站台的售票口却轻轻响了一声。':i<=10?intros[i-1]:r[3],tier:i%10===0?'区域首领':i%5===0?'精英首领':'楼层首领',playable:i<=10}});
 export const ACTORS={eous:'伊埃斯',amillion:'艾米莉安',nicole:'妮可布',anby:'安比布',billy:'比利布',lucia:'卢西娅布',butler:'巴特勒',safety:'阿全',exploreboo:'寻宝布',sharkboo:'鲨牙布',pet:'小刺梨'};
-export const FOE_NAMES={goblin:'地精',hati:'哈提',farbauti:'法布提',dullahan:'杜拉罕',thanatos:'塔纳托斯',nymph:'冥宁芙·灰纱',butcher:'死路屠夫'};
+export const FOE_NAMES={goblin:'地精',hati:'哈提',farbauti:'法布提',dullahan:'杜拉罕',thanatos:'塔纳托斯',nymph:'冥宁芙·双子',butcher:'死路屠夫'};
 export const TILE_NAMES={wall:'封闭屏幕',floor:'通道',npc:'通讯投影',camp:'安全区终端',shop:'交易终端',chest:'物资箱',potion:'以太电池',key:'加密钥匙',redkey:'赤色密钥',gate:'加密门',redgate:'赤色封锁',stairs:'上行端口',down:'下行端口',boss:'首领',enemy:'以骸',reflector:'三面镜控制台',broadcast:'总站广播',switch:'机制开关',rune:'战术残页',clock:'停摆的钟',secret:'裂隙',trap:'陷阱',girl:'受困少女',pet:'受困的刺梨',nest:'柔软的旧毯子',relic:'旧物',warp:'传送节点',guard:'隐匿以骸',sentinel:'记录者',ambush:'异常信号'};
 export const CLUES={nicole:'妮可布：我可没卖过「最底层」的地契。钟后面那块屏幕，账上却怎么也删不掉。',anby:'安比布：电影里，被剪掉的开头通常还在。旧机器嘛……连续敲三下，有时比重启管用。',lucia:'卢西娅布：没有下一层，不代表不能往下走。那只小家伙的声音，是从钟的背面传来的。'};
 export const FUTURE_HOOKS=[{from:1,to:71,item:'无署名邀请',text:'空白城区的住民会认得邀请函上的压痕。'},{from:2,to:89,item:'少女的罗盘',text:'指针在星图上指向一块不该存在的空白。'},{from:3,to:67,item:'翡翠钥匙',text:'霜灯港的旧锁，需要同样缺了一齿的钥匙。'},{from:4,to:47,item:'单程车票',text:'逆风高架的末班车不收丁尼。'},{from:5,to:56,item:'三拍曲谱',text:'红砂剧场的帷幕，只认这段敲击。'},{from:9,to:100,item:'未寄出的守夜信',text:'有人始终在等一个愿意听完故事的客人。'}];
